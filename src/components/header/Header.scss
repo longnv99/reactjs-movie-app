@@ -1,0 +1,70 @@
+@use "../../scss/" as *;
+
+.header {
+    background-color: $main-color;
+    height: $header-height;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 99;
+    transition: top 0.5s ease;
+
+    &.shrink {
+        top: -100px
+    }
+
+    &__wrap {
+        @include flex(center, space-between);
+        height: 100%;
+        margin: 0 1rem;
+        position: relative;
+    }
+
+    &__nav {
+        @include flex(center, unset);
+        & > * ~ * {
+            margin-left: 2rem;
+        }
+
+        li {
+            padding: 5px 0;
+            font-weight: 600;
+            position: relative;
+            font-size: 1rem;
+            color: $white;
+
+            &:hover {
+                transform: scale(1.06);
+                transition: transform 0.2s ease;
+                color: $text-color-active;
+            }
+        }
+
+        @include mobile {
+            position: fixed;
+            display: none;
+        }
+    }
+}
+
+.logo {
+    font-size: 2rem;
+    font-weight: 500;
+    
+    @include flex(center, unset);
+
+    img {
+        width: 180px;
+
+        @include mobile {
+            width: 120px;
+            margin-left: 1rem;
+        }
+    }
+
+    &:hover {
+        transform: scale(1.03);
+        transition: transform 0.2s ease-in-out;
+    }
+}

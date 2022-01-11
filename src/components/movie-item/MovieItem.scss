@@ -1,0 +1,101 @@
+@use '../../scss/' as *;
+.movie-item {
+    position: relative;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: rgba(184, 184, 184, 0.25) 0px 2px 5px -1px, rgba(122, 122, 122, 0.3) 0px 1px 3px -1px;
+    
+    &:hover {
+        box-shadow: rgba(33, 208, 122, 0.2) 0px 2px 4px 0px, rgba(33, 208, 122, 0.3) 0px 2px 16px 0px;
+
+        & > .movie-item__img {
+            transform: scale(1.008);
+            transition: transform 0.3s ease;
+        }
+
+        & > * > h4 {
+            color: $text-color;
+        }
+    }
+    &__img {
+        position: relative;
+        width: 100%;
+        background-position: top;
+        background-repeat: no-repeat;
+        background-size: cover;
+        padding-top: 160%;
+        margin-bottom: 1rem;
+    
+        &::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            background-color: #000;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            border-radius: 20px;
+        }
+    
+    }
+
+    .vote {
+        position: absolute;
+        bottom: -1.6rem;
+        right: 0.4rem;
+        transform: scale(0.8);
+
+        &:hover {
+            cursor: default;
+        }
+
+        @include tablet {
+            transform: scale(0.78);
+            bottom: -2rem;
+            right: 0.4rem;
+        }
+
+        @include mobile {
+            transform: scale(0.5);
+            bottom: -2.2rem;
+            right: -0.5rem;
+        }
+
+    }
+
+    &__info {
+        min-height: 4.8rem;
+
+        @include mobile {
+            min-height: 4.4rem;
+        }
+
+        & > h4 {
+            color: $white;
+            padding: 0.4rem 1rem 0 1rem;
+            font-size: 0.86rem;
+            max-lines: 1;
+            line-height: 1.2rem;
+            text-overflow: ellipsis;
+    
+            &:hover {
+                color: $text-color;
+            }
+    
+            @include mobile {
+                font-size: 0.82rem;
+            }
+        }
+    
+        & > h3 {
+            color: rgb(110, 110, 110);
+            padding: 0 1rem;
+            font-size: 0.76rem;
+            font-weight: 300;
+        }
+    }
+
+}
+
