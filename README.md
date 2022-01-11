@@ -1,20 +1,20 @@
 # Thank you to everyone who visited
 
 # Movie App
-Movie App is a simple SPA (Single Page Application) that allows browsing movies written in React
-Link demo : [https://movie-nvl99.vercel.app](https://movie-nvl99.vercel.app)
+ - Movie App is a simple SPA (Single Page Application) that allows browsing movies written in React
+ - Link demo : [https://movie-nvl99.vercel.app](https://movie-nvl99.vercel.app)
 
-There are main pages:
+## There are main pages:
 
 ### Home page
- - Slide movies popular : 
+ - Slide movies popular
  - List movies, tv series : trending, top rated, up coming ...
 
 ### ViewMore page
  - List movies by category and search by name
 
 ### Detail page
- - List the full movie: poster, title, overview, genres,...
+ - List the full movie: poster, title, overview, genres, trailer...
 
 ### Login & Register page 
  - updating...
@@ -33,7 +33,7 @@ There are main pages:
 
 ## Setup
  - git clone repo
- `$ npm install`
- `$ npm start`
+ - `$ npm install`
+ - `$ npm start`
 
 
