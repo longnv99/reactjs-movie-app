@@ -24,6 +24,18 @@ export const OutlineButton = props => {
     )
 }
 
+export const ButtonForm = props => {
+    return ( 
+        <button 
+            className={`btn btn-form ${props.className}`}
+            type={props.type}
+            onClick={props.onClick ? () => props.onClick() : null}
+        >
+            {props.children}
+        </button>
+    )
+}
+
 Button.propTypes = {
     onClick: PropTypes.func
 }
