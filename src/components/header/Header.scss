@@ -15,16 +15,30 @@
     }
 
     &__wrap {
-        @include flex(center, space-between);
+        @include flex(center, center);
         height: 100%;
-        margin: 0 1rem;
         position: relative;
+        padding: 0 1rem;
+
+        & > .logo {
+            position: absolute;
+            left: 1rem;
+        }
+
+        i {
+            font-size: 1.6rem;
+            position: absolute;
+            right: 1rem;
+            padding: 0 1rem;
+        }
     }
 
     &__nav {
+        position: absolute;
         @include flex(center, unset);
-        & > * ~ * {
-            margin-left: 2rem;
+        right: 0;
+        & > * {
+            margin-right: 2rem;
         }
 
         li {
@@ -40,11 +54,63 @@
                 color: $text-color-active;
             }
         }
+    }
 
-        @include mobile {
-            position: fixed;
-            display: none;
+    &__menus {
+        display: flex;
+        flex-direction: column;
+        justify-content: start;
+        width: 100%;
+        height: 120vh;
+        position: absolute;
+        top: $header-height;
+        right: -100%;
+        opacity: 1;
+        transition: all 0.5s ease;
+        padding: 2rem 0;
+        background-color: rgba(255,255,255,0.13);
+
+        & > * {
+            margin-bottom: 2rem;
         }
+
+        li {
+            padding: 5px 0;
+            font-weight: 600;
+            position: relative;
+            font-size: 1.6rem;
+            font-weight: 400;
+            color: $white;
+            transition: color 0.2s ease;
+            text-align: center;
+
+            &::after {
+                position: absolute;
+                content: '';
+                width: 0;
+                height: 1px;
+                transform: translateX(-50%);
+                transition: width 0.2s ease;
+                background-color: $text-color-active;
+                bottom: 0;
+                left: 50%;
+            }
+
+            &:hover {
+                &::after {
+                    width: 60%;
+                }
+                color: $text-color-active;
+            }
+        }  
+    }
+
+    .active {
+        background: #242222;
+        right: 0;
+        opacity: 1;
+        transition: all 0.5s ease;
+        z-index: 1;
     }
 }
 
