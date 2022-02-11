@@ -16,6 +16,8 @@
 ### Detail page
  - List the full movie: poster, title, overview, genres, trailer...
 
+### Watchlist page / Watched page
+ - List movies favorite, watched : add, move, remove movies
 ### Login & Register page 
  - updating...
 
