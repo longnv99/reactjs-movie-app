@@ -16,6 +16,10 @@
         & > * > h4 {
             color: $text-color;
         }
+
+        & > .active-controll {
+            opacity: 1;
+        }
     }
     &__img {
         position: relative;
@@ -63,6 +67,62 @@
             right: -0.5rem;
         }
 
+    }
+
+    .add {
+        position: absolute;
+        top: 0.5rem;
+        right: 0.6rem;
+        font-size: 1.4rem;
+        color: azure;
+        cursor: pointer;
+        outline: none;
+        border: none;
+        background-color: transparent;
+
+        .active {
+            color: $text-color;
+            cursor: default;
+        }
+    }
+
+    .add-disable {
+        display: none;
+    }
+
+    .active-controll {
+        position: absolute;
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        background-color: rgba(0, 0, 0, 0.8);
+        left: 50%;
+        transform: translateX(-50%);
+        top: 0.5rem;
+        right: 0.6rem;
+        width: 30%;
+        height: auto;
+        border-radius: 5px;
+        padding: 5px;
+        opacity: 0;
+        transition: all 0.3s ease;
+
+        @include mobile {
+            width: 40%;
+        }
+
+        .ctrl-btn {
+            color: #fefefe;
+            background-color: transparent;
+            border: none;
+            transition: all 0.3s ease;
+            font-size: 1.25rem;
+            padding: 5px;
+            margin: 0;
+            :hover {
+                transform: scale(1.15);
+            }
+        }
     }
 
     &__info {

@@ -22,7 +22,6 @@ const Slide = () => {
             try {
                 const response = await movieApi.getMovieList(movieType.popular, { params });
                 setMovieItems(response.results.slice(0, 5));
-                console.log(response);
             } catch (error) {
                 console.log(error);
             }

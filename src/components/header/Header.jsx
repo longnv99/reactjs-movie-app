@@ -47,7 +47,7 @@ const Header = () => {
     const active = headerNav.findIndex(nav => nav.path === pathName);
 
     const width = window.innerWidth;
-    console.log(width);
+    //console.log(width);
 
     return (
         <div ref={headerRef} className='header'>
