@@ -7,13 +7,17 @@ import RoutesConfig from './routes/RoutesConfig';
 import Header from './components/header/Header';
 import Footer from './components/footer/Footer';
 
+import { GlobalProvider } from './store/GlobalState';
+
 function App() {
     return (
-        <BrowserRouter>
-            <Header />
-            <RoutesConfig />
-            <Footer />
-        </BrowserRouter>
+        <GlobalProvider>
+            <BrowserRouter>
+                <Header />
+                <RoutesConfig />
+                <Footer />
+            </BrowserRouter>
+        </GlobalProvider>
       );
 }
 
