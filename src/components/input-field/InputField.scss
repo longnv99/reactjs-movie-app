@@ -1,0 +1,35 @@
+@use '../../scss/' as *;
+
+.input-field {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    padding: 0.5rem 0;
+
+    label {
+        display: block;
+        color: #fff;
+        font-size: 1rem;
+        margin: 0.2rem 0;
+        font-family: $font-family;
+    }
+
+    input {
+        position: relative;
+        border-radius: 3px;
+        padding: 0.7rem;
+        width: 100%;
+        background-color: rgba(255,255,255,0.07);
+        color: $white;
+        font-family: $font-family;
+
+        &:focus {
+            border: 1px solid $white ;
+            padding: calc(0.7rem - 1px);
+        }
+
+        &::placeholder{
+            color: #e5e5e5;
+        }
+    }
+}
