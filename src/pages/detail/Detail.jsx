@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import './Detail.scss';
 import { useParams } from 'react-router-dom'
 import apiConfig from '../../api/apiConfig';
@@ -7,7 +7,7 @@ import CastList from './CastList';
 import VideoList from './VideoList';
 import MovieList from '../../components/movie-list/MovieList'
 import Circle from '../../components/circle-vote/Circle';
-import CircleOption from '../../components/circle-option/CircleOption';
+import { GlobalContext } from '../../store/GlobalState';
 
 function Detail() {
     const { category, id } = useParams();
@@ -21,6 +21,12 @@ function Detail() {
         }
         getDetail();
     }, [category, id])
+
+    const { addMovieToWatchlist, watchlist, watched } = useContext(GlobalContext);
+    let storedMovie = watchlist.find(o => o.id == id)
+    let storedMovieWatched = watched.find(o => o.id == id)
+
+    const watchlistDisabled = storedMovie ? true : storedMovieWatched ? true : false;
 
     return (
         <>
@@ -45,7 +51,20 @@ function Detail() {
                                 </div>
                                 <div className="options">
                                     <Circle vote_average={item.vote_average} />
-                                    <CircleOption />
+                                    <button 
+                                        className={`contain ${watchlistDisabled ? 'active' : null}`}
+                                        disabled={watchlistDisabled}
+                                        onClick={() => addMovieToWatchlist(item)}
+                                    >
+                                        <div className="circle">
+                                            <div className="icon">
+                                            {
+                                                watchlistDisabled ? <i className="fa-solid fa-bookmark active"></i> 
+                                                : <i className="fas fa-plus-circle"></i>
+                                            }
+                                            </div>
+                                        </div>
+                                    </button>
                                 </div>
                                 <p className="overview">{item.overview}</p>
                                 <div className="cast">
